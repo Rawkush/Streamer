@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 import com.teammanagementapp.ankush.streamer.R;
 import com.teammanagementapp.ankush.streamer.activity.anime.NineAnime;
+import com.teammanagementapp.ankush.streamer.activity.movies.Fmovies;
 
 import org.adblockplus.libadblockplus.android.settings.AdblockHelper;
 import org.adblockplus.libadblockplus.android.webview.AdblockWebView;
@@ -372,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(query.contains("fmovies")){
-            Intent intent= new Intent(this,NineAnime.class);
+            Intent intent= new Intent(this,Fmovies.class);
             startActivity(intent);
         }
 
