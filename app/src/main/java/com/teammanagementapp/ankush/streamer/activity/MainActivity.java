@@ -371,6 +371,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+        if(query.contains("fmovies")){
+            Intent intent= new Intent(this,NineAnime.class);
+            startActivity(intent);
+        }
+
         if (query.startsWith("http"))
             return query;
         else
