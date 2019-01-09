@@ -1,4 +1,4 @@
-package com.teammanagementapp.ankush.streamer;
+package com.teammanagementapp.ankush.streamer.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
             // injectScriptFile(view, "js/script.js");
         }
 
-    }
+    };
 
             //////////////////
     @Override
@@ -240,6 +240,19 @@ public class MainActivity extends AppCompatActivity {
         public void onReceivedTitle(WebView view, String title) {
             super.onReceivedTitle(view, title);
             getSupportActionBar().setTitle(title);
+
+
+
+
+            webView.setDownloadListener(new DownloadListener() {
+                @Override
+                public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                    Uri myUri = Uri.parse(url);
+                    Intent superIntent = new Intent(Intent.ACTION_VIEW);
+                    superIntent.setData(myUri);
+                    startActivity(superIntent);
+                }
+            });
         }
 
         @Override
@@ -299,16 +312,6 @@ public class MainActivity extends AppCompatActivity {
             mCustomView = null;
         }
 
-
-        webView.setDownloadListener(new DownloadListener() {
-            @Override
-            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                Uri myUri = Uri.parse(url);
-                Intent superIntent = new Intent(Intent.ACTION_VIEW);
-                superIntent.setData(myUri);
-                startActivity(superIntent);
-            }
-        });
 
     };
 
